@@ -2,6 +2,8 @@
 
 #### 부스트코스 '웹프로그래밍' 프로젝트(예약관리시스템)를 spring boot 전환
 
+## Build
+Run BookedApplication.java 
 
 ## Using
 * Spring boot</br>
