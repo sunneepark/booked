@@ -17,6 +17,10 @@ public class ProductService {
 	public ProductMapper mapper;
 	
 	public static int LIMIT = 4;
+	public int selectCount() {
+		return mapper.selectCount();
+	}
+	
 	public int selectCountByCategory(int categoryId) {
 		return mapper.selectCountByCategory(categoryId);
 	}

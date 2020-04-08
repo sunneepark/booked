@@ -12,6 +12,7 @@ import kr.or.connect.booked.VO.Product;
 @Repository
 @Mapper
 public interface ProductMapper {
+	int selectCount();
 	int selectCountByCategory(int categoryId);
 	List<Integer> selectIdByCategory(int categoryId, int start, int limit);
 	List<Product> selectProductById(Map<String, Object> idList);

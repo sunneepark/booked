@@ -42,8 +42,6 @@ public class ProductsController {
 		System.out.println(idList);
 		
 		List<Product> productList = productService.selectProductById(idList);
-		List<Display> displayList = displayService.selectDisplayById(idList);
-		List<String> filenameList = fileService.selectUrlById(idList);
 		
 		for(int i=0;i<idList.size();i++) {
 			

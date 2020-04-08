@@ -2,28 +2,33 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="kr.or.connect.booked.mapper.ProductMapper">
+	<select id="selectCount" resultType="Integer">
+		SELECT count(*) FROM product
+	</select>
 	<select id="selectCountByCategory" resultType="Integer">
 		SELECT count(*) FROM product
-		<if test = "categoryId != 0">
-		WHERE 
-		categoryId = ${categoryId}
+		<if test="categoryId != 0">
+			WHERE
+			categoryId = ${categoryId}
 		</if>
 	</select>
 	<select id="selectIdByCategory" resultType="int">
 		SELECT id
 		FROM product
-		<if test = "categoryId != 0">
-		WHERE 
-		categoryId = ${categoryId}
+		<if test="categoryId != 0">
+			WHERE
+			categoryId = ${categoryId}
 		</if>
 		limit ${start}, ${limit}
 	</select>
-	<select id="selectProductById" resultType="kr.or.connect.booked.VO.Product">
+	<select id="selectProductById"
+		resultType="kr.or.connect.booked.VO.Product">
 		SELECT *
 		FROM product
-		WHERE 
-		id IN 
-		<foreach item="item" collection="idList" open="(" separator="," close=")">
+		WHERE
+		id IN
+		<foreach item="item" collection="idList" open="("
+			separator="," close=")">
 			#{item}
 		</foreach>
 	</select>
