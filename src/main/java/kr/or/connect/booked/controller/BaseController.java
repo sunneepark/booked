@@ -41,7 +41,7 @@ public class BaseController {
 	
 	@RequestMapping(path="/testDB")
 	public String testDB(Model model) {
-		int allCount = product.selectCount();
+		int allCount = product.selectCountByCategory(0);
 		model.addAttribute("count",allCount);
 		
 		return "thymeleafdb";

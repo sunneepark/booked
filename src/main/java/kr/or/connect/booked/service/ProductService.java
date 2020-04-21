@@ -12,25 +12,22 @@ import kr.or.connect.booked.mapper.ProductMapper;
 
 @Service
 public class ProductService {
-	
+
 	@Autowired
 	public ProductMapper mapper;
-	
+
 	public static int LIMIT = 4;
-	public int selectCount() {
-		return mapper.selectCount();
-	}
-	
+
 	public int selectCountByCategory(int categoryId) {
 		return mapper.selectCountByCategory(categoryId);
 	}
-	
-	public List<Integer> selectIdByCategory(int categoryId, int start){
-		return mapper.selectIdByCategory(categoryId,start,start+LIMIT);
+	public List<Integer> selectIdByCategory(int categoryId, int start) {
+		return mapper.selectIdByCategory(categoryId, start, start + LIMIT);
 	}
-	public List<Product> selectProductById(List<Integer> idList){
-		Map<String, Object> map =new HashMap<String, Object>();
-		map.put("idList",idList);
-		return mapper.selectProductById(map);	
+
+	public List<Product> selectProductById(List<Integer> idList) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("idList", idList);
+		return mapper.selectProductById(map);
 	}
 }

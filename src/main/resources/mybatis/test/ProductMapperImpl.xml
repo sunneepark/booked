@@ -2,14 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="kr.or.connect.booked.mapper.ProductMapper">
-	<select id="selectCount" resultType="Integer">
+	
+	<select id="selectCountByCategory" resultType="Integer" >
 		SELECT count(*) FROM product
-	</select>
-	<select id="selectCountByCategory" resultType="Integer">
-		SELECT count(*) FROM product
-		<if test="categoryId != 0">
+		<if test="value != 0">
 			WHERE
-			categoryId = ${categoryId}
+			categoryId = ${value}
 		</if>
 	</select>
 	<select id="selectIdByCategory" resultType="int">
@@ -31,6 +29,7 @@
 			separator="," close=")">
 			#{item}
 		</foreach>
+		ORDER BY id
 	</select>
 </mapper>
 

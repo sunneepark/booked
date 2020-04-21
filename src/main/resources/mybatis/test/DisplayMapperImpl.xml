@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.or.connect.booked.mapper.DisplayMapper">
+	<select id="getDisplayById"
+		resultType="kr.or.connect.booked.VO.Display">
+		SELECT id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date
+		FROM display_info
+		WHERE
+		product_id IN
+		<foreach item="item" collection="idList" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+		ORDER BY product_id
+	</select>
+</mapper>
+

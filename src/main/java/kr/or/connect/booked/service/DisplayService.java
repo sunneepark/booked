@@ -1,7 +1,9 @@
 package kr.or.connect.booked.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,9 +16,10 @@ public class DisplayService {
 	@Autowired
 	public DisplayMapper displayMapper;
 	
-	public List<Display> getDisplayById(List<Integer> productIdList){;
-		List<Display> list = new ArrayList<>();
-		return list;
+	public List<Display> getDisplayById(List<Integer> productIdList){
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("idList", productIdList);
+		return displayMapper.getDisplayById(map);
 	}
 	
 }
